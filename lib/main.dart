@@ -81,11 +81,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     "    "+datalist[index].equity.toString(),style: TextStyle(color: Colors.red,fontSize: 16),),
                 onExpansionChanged: (bool open) async {
                   if(open){
-                    RemoteService.getchildlist().then((value) {
-                      setState(() {
-                        childlist.addAll(value!);
+                    if(datalist[index].state=="closed"){
+                      RemoteService.getchildlist().then((value) {
+                        setState(() {
+                          childlist.addAll(value!);
+                        });
                       });
-                    });
+                    }
+                    else {
+                      print("No child found");
+                    }
+
 
 
                   }
@@ -106,7 +112,22 @@ class _MyHomePageState extends State<MyHomePage> {
                          itemCount: snapshot.data!.length,
                          itemBuilder: (context, index) {
 
-                          return Text(snapshot.data![index].userName.toString());
+                          return Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Container(
+                                width: double.infinity,
+                                height: 50,
+                                color: Colors.grey.shade200,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Text(snapshot.data![index].agentId.toString(),style: TextStyle(color: Colors.red,fontSize: 16)),
+                                    Text(snapshot.data![index].userName.toString(),style: TextStyle(color: Colors.red,fontSize: 16)),
+                                    Text(snapshot.data![index].balance.toString(),style: TextStyle(color: Colors.red,fontSize: 16)),
+                                    Text(snapshot.data![index].equity.toString(),style: TextStyle(color: Colors.red,fontSize: 16)),
+                                  ],
+                                )),
+                          );
                          });
 
                      //  return Container(
