@@ -56,38 +56,5 @@ class RemoteService {
       print(e);
     }
   }
-  // static Future<FirstModel?> getparent() async{
-  //   String theUrl = "https://testapi.cptinternational.com/api/Agents/SearchAgentTree";
-  //   var formData = FormData.fromMap({
-  //          "account": "603273",
-  //         "businessType": "FT_A",
-  //         "keyword": "603273",
-  //         "search": "Y"
-  //   });
-  //   try {
-  //     dio.Response response = await client
-  //         .post(theUrl,
-  //         options:
-  //         dio.Options(
-  //             headers: {
-  //               // 'Authorization': 'Bearer$token'
-  //               'Content-Type': 'application/json',
-  //               'Accept': 'application/json',
-  //               'Authorization': 'Bearer $token',
-  //               'lang': 'en-us'
-  //             }
-  //             ),data: formData)
-  //         .timeout(const Duration(seconds: 30));
-  //
-  //     if (response.statusCode == 200) {
-  //       print("Success hemant");
-  //       //     return PhoneNo(status: data['status'],message: data['message']);
-  //       return FirstModel.fromJson(response.data);
-  //     } else {
-  //       return null;
-  //     }
-  //   } on TimeoutException catch (_) {
-  //     return null;
-  //   }
-  // }
+
 }

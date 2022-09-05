@@ -146,30 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ]
 
 
-              //     child: ListView.builder(
-              // itemCount: snapshot.data?.length,
-              //     itemBuilder: (context, index) {
-              //       return Text(snapshot.data![index].agentId.toString());
-              //     }),
-              // Text(childlist[0].userName.toString(),style: TextStyle(color: Colors.black54,fontSize: 20),)
-                  // ListView.builder(
-                  //     itemCount: childlist.length,
-                  //     itemBuilder: (context, index) {
-                  //       return Text(childlist[index].userName.toString(),style: TextStyle(color: Colors.black54,fontSize: 20),);
-                  //     })
 
-                // child: Row(
-                //
-                //   children: [
-                //     Text(datalist[index].agentId.toString(),style: TextStyle(color: Colors.red,fontSize: 16),),
-                //     SizedBox(width: 20),
-                //     Text(datalist[index].userName.toString(),style: TextStyle(color: Colors.red,fontSize: 16)),
-                //     SizedBox(width: 20),
-                //     Text(datalist[index].agentId.toString(),style: TextStyle(color: Colors.red,fontSize: 16)),
-                //     SizedBox(width: 20),
-                //     Text(datalist[index].agentId.toString(),style: TextStyle(color: Colors.red,fontSize: 16)),
-                //   ],
-                // ),
               );
             }),
         ),
@@ -182,53 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   }
 
- // Widget buildTile(BasicTile e,{double leftPadding =16}) {
- //    if(e.tiles.isEmpty){
- //      return ListTile(
- //        contentPadding: EdgeInsets.only(left: leftPadding+50),
- //        title: Text(e.title!),
- //
- //      );
- //    }else {
- //      return ExpansionTile(title: Text(e.title!),
- //        trailing: const SizedBox.shrink(),
- //        leading: const Icon(Icons.add),
- //        tilePadding: EdgeInsets.only(left: leftPadding),
- //        children: e.tiles.map((e)=>buildTile(e,leftPadding: 16+leftPadding)).toList(),
- //
- //
- //      );
- //    }
- //    }
-  Future <FirstModel?> apiparent() async {
-    var _URL = "https://testapi.cptinternational.com/api/Agents/SearchAgentTree";
-    Uri uri = Uri.parse(_URL);
-    var token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjNkMzA2ZjlmLTdmMjQtNDIzOC1iN2NmLWVmOGJkYjFhMzIwNyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkMiLCJleHAiOjE2NjIxODUyODcsImlzcyI6IlVzZXJDZW50ZXIiLCJhdWQiOiJhbGwifQ.JnhfMUMHVte7NhT60-it9yJ40dG5LySO9JXaYDztjZQ";
-    var response = await http.post(uri,headers: <String,String>{
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    'Authorization': 'Bearer $token',
-    },
-      body: jsonEncode(<String,dynamic>{
-      "account": "603273",
-      "businessType": "FT_A",
-      "keyword": "603273",
-      "search": "Y"
-    }),
-    );
-
-    if(response.statusCode==200){
 
 
-
-
-      return FirstModel.fromJson(json.decode(response.body));
-      // return FirstModel(statusCode: aa['statusCode'],message: aa['message'],data: aa['data']);
-        // return fm.data;
-
-
-
-    }
-  }
 
 }
